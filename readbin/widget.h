@@ -4,7 +4,8 @@
 #include <QWidget>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QTextStream>
+//#include <QTextStream>    //文本文件读写
+#include <QDataStream>      //二进制文件读写
 
 namespace Ui {
 class Widget;
@@ -19,9 +20,13 @@ public:
     ~Widget();
 
 private slots:
-    void on_openBt_clicked();
+    void on_iapBt_clicked();
 
-    void on_saveBt_clicked();
+    void on_appBt_clicked();
+
+    void on_paraBt_clicked();
+
+    void on_generateBt_clicked();
 
 private:
     Ui::Widget *ui;
