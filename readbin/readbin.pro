@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += widget.h
 
 FORMS    += widget.ui
+
+
+RC_ICONS = icons8_size96.ico

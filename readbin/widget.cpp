@@ -45,6 +45,10 @@ void Widget::on_iapBt_clicked()
         qDebug() << info.filePath();
 
         ui->iappathEdit->setText(buf);
+        //ui->iapsizeEdit->setText(QString::number(info.size(),16));
+        QString iapsize = QString("0x%1").arg(info.size(), 8, 16, QLatin1Char('0'));
+        iapsize = iapsize.toUpper();
+        ui->iapsizeEdit->setText(iapsize);
         ui->iapoffsizeEdit->setText(tr("0x00000000"));  //默认偏移量
     } else {
         QMessageBox::warning(this, tr("Path"), tr("You did not select any file."));
@@ -76,6 +80,10 @@ void Widget::on_appBt_clicked()
         qDebug("%s",qPrintable(buf));
 
         ui->apppathEdit->setText(buf);
+        //ui->appsizeEdit->setText(QString::number(info.size(),16));
+        QString appsize = QString("0x%1").arg(info.size(), 8, 16, QLatin1Char('0'));
+        appsize = appsize.toUpper();
+        ui->appsizeEdit->setText(appsize);
         ui->appoffsizeEdit->setText(tr("0x00003000"));  //默认偏移量
     } else {
         QMessageBox::warning(this, tr("Path"), tr("You did not select any file."));
@@ -107,6 +115,10 @@ void Widget::on_paraBt_clicked()
         qDebug("%s",qPrintable(buf));
 
         ui->parapathEdit->setText(buf);
+        //ui->parasizeEdit->setText(QString::number(info.size(),16));
+        QString parasize = QString("0x%1").arg(info.size(), 8, 16, QLatin1Char('0'));
+        parasize = parasize.toUpper();
+        ui->parasizeEdit->setText(parasize);
         ui->paraoffsizeEdit->setText(tr("0x0001E800")); //默认偏移量
     } else {
         QMessageBox::warning(this, tr("Path"), tr("You did not select any file."));
