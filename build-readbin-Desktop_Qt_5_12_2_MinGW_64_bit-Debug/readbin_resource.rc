@@ -1,10 +1,6 @@
-# if defined(UNDER_CE)
-#  include <winbase.h>
-# else
-#  include <windows.h>
-# endif
+#include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"G:\\GitHub\\readbin\\readbin\\icons8_size96.ico"
+IDI_ICON1	ICON	DISCARDABLE	"E:\\Qt\\qt_workspace\\test\\Qt-Creator\\readbin\\icons8_size96.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
