@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"E:\\Qt\\qt_workspace\\test\\Qt-Creator\\readbin\\icons8_size96.ico"
+IDI_ICON1	ICON	DISCARDABLE	"E:\\Qt\\qt_workspace\\test\\Qt-Creator\\can_ext_id\\icons8_size96.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
