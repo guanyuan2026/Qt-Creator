@@ -13,13 +13,13 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>22</x>
-     <y>20</y>
+     <x>50</x>
+     <y>50</y>
      <width>882</width>
-     <height>275</height>
+     <height>279</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -38,7 +38,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="iapsizeEdit">
+       <widget class="QLineEdit" name="srcEdit">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -119,7 +119,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="iapsizeEdit_5">
+       <widget class="QLineEdit" name="srcEdit_out">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -229,7 +229,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="iapoffsizeEdit">
+       <widget class="QLineEdit" name="dstEdit">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -310,7 +310,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="iapoffsizeEdit_4">
+       <widget class="QLineEdit" name="dstEdit_out">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -420,7 +420,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="appsizeEdit">
+       <widget class="QLineEdit" name="cmd1Edit">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -501,7 +501,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="appsizeEdit_7">
+       <widget class="QLineEdit" name="cmdEdit_out">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -611,7 +611,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="appsizeEdit_2">
+       <widget class="QLineEdit" name="index1Edit">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -692,7 +692,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="appsizeEdit_8">
+       <widget class="QLineEdit" name="indexEdit_out">
         <property name="minimumSize">
          <size>
           <width>90</width>
@@ -810,12 +810,12 @@
          </font>
         </property>
         <property name="text">
-         <string/>
+         <string>convert</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="iapBt">
+       <widget class="QPushButton" name="convertBt">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -833,7 +833,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="iapBt_2">
+       <widget class="QPushButton" name="convertBt_2">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -851,7 +851,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="iapBt_3">
+       <widget class="QPushButton" name="convertBt_3">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -869,7 +869,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="iapBt_5">
+       <widget class="QPushButton" name="convertBt_5">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -887,7 +887,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="iapBt_4">
+       <widget class="QPushButton" name="convertBt_4">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -905,7 +905,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="iapBt_6">
+       <widget class="QPushButton" name="convertBt_6">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -965,7 +965,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="iappathEdit">
+       <widget class="QLineEdit" name="extEdit">
         <property name="minimumSize">
          <size>
           <width>120</width>

@@ -19,6 +19,11 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+private slots:
+    void on_convertBt_clicked();
+
+    void on_convertBt_5_clicked();
+
 private:
     Ui::Widget *ui;
 };
