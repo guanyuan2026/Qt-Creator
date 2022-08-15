@@ -8,6 +8,39 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
+    setWindowTitle("CAN扩展帧ID解析");
+
+    this->setFixedSize(width(),height()); //固定窗口大小
+    //this->setFixedSize(910, 530);
+
+    //设置文本的颜色，背景文本的颜色也会修改
+    //QPalette palette;
+    //palette.setColor(QPalette::Text, QColor(196, 196, 196));  //灰色
+    //palette.setColor(QPalette::Text, QColor(255, 0, 0));  //红色
+    //ui->srcEdit_in->setPalette(palette);
+    //ui->srcEdit_in->setStyleSheet("QLineEdit{color:rgb(33, 33, 33);}");   //无效，需确认
+    //ui->srcEdit_in->setStyleSheet("QLineEdit{color: 0x999999;}");   //无效，需确认
+
+    //设置背景文字，也可在属性栏直接设置
+    //ui->srcEdit_in->setPlaceholderText("输入");
+
+    //ui->extEdit_out->setStyleSheet("background-color:rgba(0,196,196,196)");
+    ui->extEdit_out->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->extEdit_out_2->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->extEdit_out_3->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->srcEdit_out->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->srcEdit_out_2->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->srcEdit_out_3->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->dstEdit_out->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->dstEdit_out_2->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->dstEdit_out_3->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->cmdEdit_out->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->cmdEdit_out_2->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->cmdEdit_out_3->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->indexEdit_out->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->indexEdit_out_2->setStyleSheet("background:lightGray");   //设置背景为浅灰色
+    ui->indexEdit_out_3->setStyleSheet("background:lightGray");   //设置背景为浅灰色
 }
 
 Widget::~Widget()
@@ -31,7 +64,7 @@ void Widget::on_convertBt_clicked()
     cmd = ui->cmdEdit_in->text().toInt(&status,16); // 表示以16进制方式读取字符串
     index = ui->indexEdit_in->text().toInt(&status,16); // 表示以16进制方式读取字符串
     ext_id = (src_id << 22) + (dst_id << 16) + (cmd << 8) + index;
-    qDebug("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x\n", src_id, dst_id, cmd, index, ext_id);
+    qDebug("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x", src_id, dst_id, cmd, index, ext_id);
 
     QString buf;
 
@@ -39,6 +72,9 @@ void Widget::on_convertBt_clicked()
     QString str_ext_id = QString("%1").arg(ext_id, 8, 16, QLatin1Char('0'));
     str_ext_id = str_ext_id.toUpper();
     ui->extEdit_out->setText(str_ext_id);
+
+    buf = QString().sprintf("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x", src_id, dst_id, cmd, index, ext_id);
+    ui->historyEdit->appendPlainText(buf);
 }
 
 void Widget::on_convertBt_5_clicked()
@@ -55,7 +91,7 @@ void Widget::on_convertBt_5_clicked()
     dst_id = (ext_id >> 16) & 0x3F;
     cmd = (ext_id >> 8) & 0xFF;
     index = ext_id & 0xFF;
-    qDebug("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x\n", ext_id, src_id, dst_id, cmd, index);
+    qDebug("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x", ext_id, src_id, dst_id, cmd, index);
 
     QString buf;
 
@@ -75,6 +111,9 @@ void Widget::on_convertBt_5_clicked()
     QString str_index = QString("%1").arg(index, 2, 16, QLatin1Char('0'));
     str_index = str_index.toUpper();
     ui->indexEdit_out->setText(str_index);
+
+    buf = QString().sprintf("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x", ext_id, src_id, dst_id, cmd, index);
+    ui->historyEdit->appendPlainText(buf);
 }
 
 void Widget::on_convertBt_2_clicked()
@@ -91,7 +130,7 @@ void Widget::on_convertBt_2_clicked()
     cmd = ui->cmdEdit_in_2->text().toInt(&status,16); // 表示以16进制方式读取字符串
     index = ui->indexEdit_in_2->text().toInt(&status,16); // 表示以16进制方式读取字符串
     ext_id = (src_id << 22) + (dst_id << 16) + (cmd << 8) + index;
-    qDebug("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x\n", src_id, dst_id, cmd, index, ext_id);
+    qDebug("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x", src_id, dst_id, cmd, index, ext_id);
 
     QString buf;
 
@@ -99,6 +138,8 @@ void Widget::on_convertBt_2_clicked()
     QString str_ext_id = QString("%1").arg(ext_id, 8, 16, QLatin1Char('0'));
     str_ext_id = str_ext_id.toUpper();
     ui->extEdit_out_2->setText(str_ext_id);
+    buf = QString().sprintf("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x", src_id, dst_id, cmd, index, ext_id);
+    ui->historyEdit->appendPlainText(buf);
 }
 
 void Widget::on_convertBt_3_clicked()
@@ -115,7 +156,7 @@ void Widget::on_convertBt_3_clicked()
     cmd = ui->cmdEdit_in_3->text().toInt(&status,16); // 表示以16进制方式读取字符串
     index = ui->indexEdit_in_3->text().toInt(&status,16); // 表示以16进制方式读取字符串
     ext_id = (src_id << 22) + (dst_id << 16) + (cmd << 8) + index;
-    qDebug("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x\n", src_id, dst_id, cmd, index, ext_id);
+    qDebug("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x", src_id, dst_id, cmd, index, ext_id);
 
     QString buf;
 
@@ -123,6 +164,8 @@ void Widget::on_convertBt_3_clicked()
     QString str_ext_id = QString("%1").arg(ext_id, 8, 16, QLatin1Char('0'));
     str_ext_id = str_ext_id.toUpper();
     ui->extEdit_out_3->setText(str_ext_id);
+    buf = QString().sprintf("src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x --> ext_id = 0x%x", src_id, dst_id, cmd, index, ext_id);
+    ui->historyEdit->appendPlainText(buf);
 }
 
 void Widget::on_convertBt_4_clicked()
@@ -139,7 +182,7 @@ void Widget::on_convertBt_4_clicked()
     dst_id = (ext_id >> 16) & 0x3F;
     cmd = (ext_id >> 8) & 0xFF;
     index = ext_id & 0xFF;
-    qDebug("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x\n", ext_id, src_id, dst_id, cmd, index);
+    qDebug("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x", ext_id, src_id, dst_id, cmd, index);
 
     QString buf;
 
@@ -159,6 +202,9 @@ void Widget::on_convertBt_4_clicked()
     QString str_index = QString("%1").arg(index, 2, 16, QLatin1Char('0'));
     str_index = str_index.toUpper();
     ui->indexEdit_out_2->setText(str_index);
+
+    buf = QString().sprintf("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x", ext_id, src_id, dst_id, cmd, index);
+    ui->historyEdit->appendPlainText(buf);
 }
 
 void Widget::on_convertBt_6_clicked()
@@ -175,7 +221,7 @@ void Widget::on_convertBt_6_clicked()
     dst_id = (ext_id >> 16) & 0x3F;
     cmd = (ext_id >> 8) & 0xFF;
     index = ext_id & 0xFF;
-    qDebug("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x\n", ext_id, src_id, dst_id, cmd, index);
+    qDebug("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x", ext_id, src_id, dst_id, cmd, index);
 
     QString buf;
 
@@ -195,4 +241,7 @@ void Widget::on_convertBt_6_clicked()
     QString str_index = QString("%1").arg(index, 2, 16, QLatin1Char('0'));
     str_index = str_index.toUpper();
     ui->indexEdit_out_3->setText(str_index);
+
+    buf = QString().sprintf("ext_id = 0x%x --> src id = 0x%x, dst id = 0x%x, cmd = 0x%x, index = 0x%x", ext_id, src_id, dst_id, cmd, index);
+    ui->historyEdit->appendPlainText(buf);
 }

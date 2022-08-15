@@ -124,10 +124,10 @@ public:
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(1181, 571);
+        Widget->resize(904, 530);
         layoutWidget = new QWidget(Widget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 10, 877, 298));
+        layoutWidget->setGeometry(QRect(10, 16, 877, 298));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -733,15 +733,19 @@ public:
 
         historyEdit = new QPlainTextEdit(Widget);
         historyEdit->setObjectName(QString::fromUtf8("historyEdit"));
-        historyEdit->setGeometry(QRect(10, 360, 881, 111));
-        label_3 = new QLabel(Widget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(10, 334, 91, 21));
+        historyEdit->setGeometry(QRect(10, 366, 881, 151));
         QFont font1;
         font1.setPointSize(12);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_3->setFont(font1);
+        historyEdit->setFont(font1);
+        historyEdit->setReadOnly(true);
+        label_3 = new QLabel(Widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(10, 340, 91, 21));
+        QFont font2;
+        font2.setPointSize(12);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label_3->setFont(font2);
         label_3->setFrameShape(QFrame::NoFrame);
 
         retranslateUi(Widget);
