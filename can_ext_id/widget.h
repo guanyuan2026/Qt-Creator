@@ -24,6 +24,14 @@ private slots:
 
     void on_convertBt_5_clicked();
 
+    void on_convertBt_2_clicked();
+
+    void on_convertBt_3_clicked();
+
+    void on_convertBt_4_clicked();
+
+    void on_convertBt_6_clicked();
+
 private:
     Ui::Widget *ui;
 };
