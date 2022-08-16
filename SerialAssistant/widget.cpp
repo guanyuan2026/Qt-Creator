@@ -2,6 +2,7 @@
 #include "ui_widget.h"
 #include <QSerialPortInfo>
 #include <QMessageBox>
+#include <QDebug>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -77,7 +78,9 @@ void Widget::on_closeBt_clicked()
 
 void Widget::on_sendBt_clicked()
 {
-    serialPort->write(ui->sendEdit->text().toLocal8Bit().data());
+    //serialPort->write(ui->sendEdit->text().toLocal8Bit().data());
+    serialPort->write(QByteArray::fromHex(ui->sendEdit->text().toLatin1().data()));
+    qDebug() << QByteArray::fromHex(ui->sendEdit->text().toLatin1().data());
 }
 
 void Widget::on_clearBt_clicked()

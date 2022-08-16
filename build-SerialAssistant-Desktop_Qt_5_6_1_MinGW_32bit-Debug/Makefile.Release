@@ -17,13 +17,13 @@ CXXFLAGS      = -pipe -fno-keep-inline-dllexport -O2 -std=gnu++0x -frtti -Wall -
 INCPATH       = -I..\SerialAssistant -I. -ID:\Qt\Qt5.6.1\5.6\mingw49_32\include -ID:\Qt\Qt5.6.1\5.6\mingw49_32\include\QtWidgets -ID:\Qt\Qt5.6.1\5.6\mingw49_32\include\QtGui -ID:\Qt\Qt5.6.1\5.6\mingw49_32\include\QtANGLE -ID:\Qt\Qt5.6.1\5.6\mingw49_32\include\QtSerialPort -ID:\Qt\Qt5.6.1\5.6\mingw49_32\include\QtCore -Irelease -I. -ID:\Qt\Qt5.6.1\5.6\mingw49_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LD:\Qt\Qt5.6.1\5.6\mingw49_32\lib D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libqtmain.a -LC:\utils\postgresql\pgsql\lib -LC:\utils\my_sql\my_sql\lib -lshell32 D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5Widgets.a D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5Gui.a D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5SerialPort.a D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5Core.a 
+LIBS        =        -lmingw32 -LD:\Qt\Qt5.6.1\5.6\mingw49_32\lib D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libqtmain.a -LC:\utils\postgresql\pgsql\lib -LC:\utils\my_sql\my_sql\lib -lshell32 D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5Widgets.a D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5Gui.a D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5SerialPort.a D:\Qt\Qt5.6.1\5.6\mingw49_32\lib\libQt5Core.a release\SerialAssistant_resource_res.o 
 QMAKE         = D:\Qt\Qt5.6.1\5.6\mingw49_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = release\SerialAssistant_resource_res.o
 COPY          = copy /y
 SED           = $(QMAKE) -install sed
 COPY_FILE     = copy /y
@@ -61,8 +61,11 @@ DESTDIR_TARGET = release\SerialAssistant.exe
 first: all
 all: Makefile.Release  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): ui_widget.h $(OBJECTS) 
+$(DESTDIR_TARGET): ui_widget.h $(OBJECTS) release/SerialAssistant_resource_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+
+release/SerialAssistant_resource_res.o: SerialAssistant_resource.rc
+	windres -i SerialAssistant_resource.rc -o release\SerialAssistant_resource_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" -o Makefile.Release ..\SerialAssistant\SerialAssistant.pro
@@ -74,6 +77,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) release\main.o release\widget.o release\moc_widget.o
+	-$(DEL_FILE) release\SerialAssistant_resource_res.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -198,6 +202,10 @@ release/moc_widget.cpp: D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QWidget \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/qfiledevice.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/QSerialPort \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialport.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialportglobal.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString \
 		../SerialAssistant/widget.h
 	D:\Qt\Qt5.6.1\5.6\mingw49_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.6.1/5.6/mingw49_32/mkspecs/win32-g++ -IG:/GitHub/SerialAssistant/SerialAssistant -ID:/Qt/Qt5.6.1/5.6/mingw49_32/include -ID:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets -ID:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui -ID:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtANGLE -ID:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort -ID:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore -I. ..\SerialAssistant\widget.h -o release\moc_widget.cpp
 
@@ -326,6 +334,10 @@ release/main.o: ../SerialAssistant/main.cpp ../SerialAssistant/widget.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/qfiledevice.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/QSerialPort \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialport.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialportglobal.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QApplication \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qapplication.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/qcoreapplication.h \
@@ -440,6 +452,10 @@ release/widget.o: ../SerialAssistant/widget.cpp ../SerialAssistant/widget.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/qfiledevice.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/QSerialPort \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialport.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialportglobal.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QString \
 		ui_widget.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtCore/QVariant \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QAction \
@@ -503,7 +519,12 @@ release/widget.o: ../SerialAssistant/widget.cpp ../SerialAssistant/widget.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
 		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QSpacerItem \
-		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QVBoxLayout
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/QSerialPortInfo \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtSerialPort/qserialportinfo.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/QMessageBox \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qmessagebox.h \
+		D:/Qt/Qt5.6.1/5.6/mingw49_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\widget.o ..\SerialAssistant\widget.cpp
 
 release/moc_widget.o: release/moc_widget.cpp 
