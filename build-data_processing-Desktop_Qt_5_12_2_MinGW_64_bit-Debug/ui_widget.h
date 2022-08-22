@@ -12,12 +12,10 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,347 +23,215 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
+    QWidget *widget;
     QGridLayout *gridLayout;
-    QSpacerItem *verticalSpacer_2;
-    QVBoxLayout *verticalLayout_2;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_5;
+    QPushButton *sel_fileBt;
+    QSpacerItem *horizontalSpacer_6;
+    QLineEdit *filepathEdit;
     QLabel *label;
-    QLineEdit *iappathEdit;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer_7;
     QLabel *label_7;
-    QLineEdit *iapsizeEdit;
     QSpacerItem *horizontalSpacer_2;
     QLabel *label_4;
-    QLineEdit *iapoffsizeEdit;
-    QSpacerItem *horizontalSpacer_8;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_2;
-    QLineEdit *apppathEdit;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_11;
     QLabel *label_8;
-    QLineEdit *appsizeEdit;
-    QSpacerItem *horizontalSpacer_5;
-    QLabel *label_6;
-    QLineEdit *appoffsizeEdit;
-    QSpacerItem *horizontalSpacer_10;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *label_3;
-    QLineEdit *parapathEdit;
-    QHBoxLayout *horizontalLayout_4;
-    QSpacerItem *horizontalSpacer_12;
-    QLabel *label_9;
-    QLineEdit *parasizeEdit;
-    QSpacerItem *horizontalSpacer_6;
-    QLabel *label_5;
-    QLineEdit *paraoffsizeEdit;
-    QSpacerItem *horizontalSpacer_9;
-    QSpacerItem *verticalSpacer;
-    QHBoxLayout *horizontalLayout_2;
-    QPushButton *iapBt;
+    QLineEdit *ping_sendEdit;
     QSpacerItem *horizontalSpacer;
-    QPushButton *appBt;
-    QSpacerItem *horizontalSpacer_4;
-    QPushButton *paraBt;
+    QLineEdit *ping_ackEdit;
+    QLineEdit *ping_timeoutEdit;
+    QLabel *label_9;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLabel *label_10;
+    QLineEdit *ack_time_maxEdit;
     QSpacerItem *horizontalSpacer_3;
-    QPushButton *generateBt;
-    QSpacerItem *verticalSpacer_3;
+    QLineEdit *ack_time_minEdit;
+    QSpacerItem *horizontalSpacer_4;
+    QLineEdit *ack_time_avg_Edit;
+    QLabel *label_3;
+    QSpacerItem *horizontalSpacer_5;
+    QLineEdit *lost_rateEdit;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(687, 312);
-        gridLayout = new QGridLayout(Widget);
+        Widget->resize(795, 316);
+        widget = new QWidget(Widget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(20, 40, 606, 220));
+        gridLayout = new QGridLayout(widget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        verticalSpacer_2 = new QSpacerItem(20, 6, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_2, 0, 0, 1, 1);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        label = new QLabel(Widget);
-        label->setObjectName(QString::fromUtf8("label"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        sel_fileBt = new QPushButton(widget);
+        sel_fileBt->setObjectName(QString::fromUtf8("sel_fileBt"));
+        sel_fileBt->setMinimumSize(QSize(100, 0));
         QFont font;
         font.setPointSize(15);
+        sel_fileBt->setFont(font);
+
+        gridLayout->addWidget(sel_fileBt, 0, 0, 1, 1);
+
+        horizontalSpacer_6 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_6, 0, 1, 1, 1);
+
+        filepathEdit = new QLineEdit(widget);
+        filepathEdit->setObjectName(QString::fromUtf8("filepathEdit"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(filepathEdit->sizePolicy().hasHeightForWidth());
+        filepathEdit->setSizePolicy(sizePolicy);
+        filepathEdit->setMinimumSize(QSize(400, 0));
+        filepathEdit->setFont(font);
+        filepathEdit->setFrame(true);
+        filepathEdit->setReadOnly(true);
+
+        gridLayout->addWidget(filepathEdit, 0, 2, 1, 5);
+
+        label = new QLabel(widget);
+        label->setObjectName(QString::fromUtf8("label"));
         label->setFont(font);
+        label->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_5->addWidget(label);
+        gridLayout->addWidget(label, 1, 2, 1, 1);
 
-        iappathEdit = new QLineEdit(Widget);
-        iappathEdit->setObjectName(QString::fromUtf8("iappathEdit"));
-        iappathEdit->setMinimumSize(QSize(400, 0));
-        iappathEdit->setFont(font);
-        iappathEdit->setFrame(true);
-        iappathEdit->setReadOnly(true);
-
-        horizontalLayout_5->addWidget(iappathEdit);
-
-
-        verticalLayout->addLayout(horizontalLayout_5);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_7);
-
-        label_7 = new QLabel(Widget);
+        label_7 = new QLabel(widget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setFont(font);
+        label_7->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(label_7);
-
-        iapsizeEdit = new QLineEdit(Widget);
-        iapsizeEdit->setObjectName(QString::fromUtf8("iapsizeEdit"));
-        iapsizeEdit->setMinimumSize(QSize(150, 0));
-        iapsizeEdit->setMaximumSize(QSize(120, 16777215));
-        iapsizeEdit->setFont(font);
-        iapsizeEdit->setReadOnly(true);
-
-        horizontalLayout->addWidget(iapsizeEdit);
+        gridLayout->addWidget(label_7, 1, 4, 1, 1);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addItem(horizontalSpacer_2);
+        gridLayout->addItem(horizontalSpacer_2, 1, 5, 2, 1);
 
-        label_4 = new QLabel(Widget);
+        label_4 = new QLabel(widget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setFont(font);
+        label_4->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(label_4);
+        gridLayout->addWidget(label_4, 1, 6, 1, 1);
 
-        iapoffsizeEdit = new QLineEdit(Widget);
-        iapoffsizeEdit->setObjectName(QString::fromUtf8("iapoffsizeEdit"));
-        iapoffsizeEdit->setMinimumSize(QSize(150, 0));
-        iapoffsizeEdit->setMaximumSize(QSize(120, 16777215));
-        iapoffsizeEdit->setFont(font);
-        iapoffsizeEdit->setReadOnly(true);
-
-        horizontalLayout->addWidget(iapoffsizeEdit);
-
-        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_8);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-
-        verticalLayout_2->addLayout(verticalLayout);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        label_2 = new QLabel(Widget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font);
-
-        horizontalLayout_6->addWidget(label_2);
-
-        apppathEdit = new QLineEdit(Widget);
-        apppathEdit->setObjectName(QString::fromUtf8("apppathEdit"));
-        apppathEdit->setMinimumSize(QSize(400, 0));
-        apppathEdit->setFont(font);
-        apppathEdit->setFrame(true);
-        apppathEdit->setReadOnly(true);
-
-        horizontalLayout_6->addWidget(apppathEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_6);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_11);
-
-        label_8 = new QLabel(Widget);
+        label_8 = new QLabel(widget);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setFont(font);
 
-        horizontalLayout_3->addWidget(label_8);
+        gridLayout->addWidget(label_8, 2, 0, 1, 1);
 
-        appsizeEdit = new QLineEdit(Widget);
-        appsizeEdit->setObjectName(QString::fromUtf8("appsizeEdit"));
-        appsizeEdit->setMinimumSize(QSize(150, 0));
-        appsizeEdit->setMaximumSize(QSize(120, 16777215));
-        appsizeEdit->setFont(font);
-        appsizeEdit->setReadOnly(true);
+        ping_sendEdit = new QLineEdit(widget);
+        ping_sendEdit->setObjectName(QString::fromUtf8("ping_sendEdit"));
+        ping_sendEdit->setMinimumSize(QSize(50, 0));
+        ping_sendEdit->setMaximumSize(QSize(120, 16777215));
+        ping_sendEdit->setFont(font);
+        ping_sendEdit->setReadOnly(true);
 
-        horizontalLayout_3->addWidget(appsizeEdit);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_5);
-
-        label_6 = new QLabel(Widget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font);
-
-        horizontalLayout_3->addWidget(label_6);
-
-        appoffsizeEdit = new QLineEdit(Widget);
-        appoffsizeEdit->setObjectName(QString::fromUtf8("appoffsizeEdit"));
-        appoffsizeEdit->setMinimumSize(QSize(150, 0));
-        appoffsizeEdit->setMaximumSize(QSize(120, 16777215));
-        appoffsizeEdit->setFont(font);
-
-        horizontalLayout_3->addWidget(appoffsizeEdit);
-
-        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_10);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_3);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        label_3 = new QLabel(Widget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font);
-
-        horizontalLayout_7->addWidget(label_3);
-
-        parapathEdit = new QLineEdit(Widget);
-        parapathEdit->setObjectName(QString::fromUtf8("parapathEdit"));
-        parapathEdit->setMinimumSize(QSize(400, 0));
-        parapathEdit->setFont(font);
-        parapathEdit->setFrame(true);
-        parapathEdit->setReadOnly(true);
-
-        horizontalLayout_7->addWidget(parapathEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_7);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_12);
-
-        label_9 = new QLabel(Widget);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setFont(font);
-
-        horizontalLayout_4->addWidget(label_9);
-
-        parasizeEdit = new QLineEdit(Widget);
-        parasizeEdit->setObjectName(QString::fromUtf8("parasizeEdit"));
-        parasizeEdit->setMinimumSize(QSize(150, 0));
-        parasizeEdit->setMaximumSize(QSize(120, 16777215));
-        parasizeEdit->setFont(font);
-        parasizeEdit->setReadOnly(true);
-
-        horizontalLayout_4->addWidget(parasizeEdit);
-
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_6);
-
-        label_5 = new QLabel(Widget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font);
-
-        horizontalLayout_4->addWidget(label_5);
-
-        paraoffsizeEdit = new QLineEdit(Widget);
-        paraoffsizeEdit->setObjectName(QString::fromUtf8("paraoffsizeEdit"));
-        paraoffsizeEdit->setMinimumSize(QSize(150, 0));
-        paraoffsizeEdit->setMaximumSize(QSize(120, 16777215));
-        paraoffsizeEdit->setFont(font);
-
-        horizontalLayout_4->addWidget(paraoffsizeEdit);
-
-        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_9);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_4);
-
-
-        gridLayout->addLayout(verticalLayout_2, 1, 0, 1, 2);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 2, 0, 1, 2);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        iapBt = new QPushButton(Widget);
-        iapBt->setObjectName(QString::fromUtf8("iapBt"));
-        iapBt->setMinimumSize(QSize(100, 0));
-        iapBt->setFont(font);
-
-        horizontalLayout_2->addWidget(iapBt);
+        gridLayout->addWidget(ping_sendEdit, 2, 2, 1, 1);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_2->addItem(horizontalSpacer);
+        gridLayout->addItem(horizontalSpacer, 2, 3, 1, 1);
 
-        appBt = new QPushButton(Widget);
-        appBt->setObjectName(QString::fromUtf8("appBt"));
-        appBt->setMinimumSize(QSize(100, 0));
-        appBt->setFont(font);
+        ping_ackEdit = new QLineEdit(widget);
+        ping_ackEdit->setObjectName(QString::fromUtf8("ping_ackEdit"));
+        ping_ackEdit->setMinimumSize(QSize(50, 0));
+        ping_ackEdit->setMaximumSize(QSize(120, 16777215));
+        ping_ackEdit->setFont(font);
 
-        horizontalLayout_2->addWidget(appBt);
+        gridLayout->addWidget(ping_ackEdit, 2, 4, 1, 1);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        ping_timeoutEdit = new QLineEdit(widget);
+        ping_timeoutEdit->setObjectName(QString::fromUtf8("ping_timeoutEdit"));
+        ping_timeoutEdit->setMinimumSize(QSize(50, 0));
+        ping_timeoutEdit->setMaximumSize(QSize(120, 16777215));
+        ping_timeoutEdit->setFont(font);
+        ping_timeoutEdit->setReadOnly(true);
 
-        horizontalLayout_2->addItem(horizontalSpacer_4);
+        gridLayout->addWidget(ping_timeoutEdit, 2, 6, 1, 1);
 
-        paraBt = new QPushButton(Widget);
-        paraBt->setObjectName(QString::fromUtf8("paraBt"));
-        paraBt->setMinimumSize(QSize(100, 0));
-        paraBt->setFont(font);
+        label_9 = new QLabel(widget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setFont(font);
+        label_9->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_2->addWidget(paraBt);
+        gridLayout->addWidget(label_9, 3, 2, 1, 1);
+
+        label_5 = new QLabel(widget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setFont(font);
+        label_5->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_5, 3, 4, 1, 1);
+
+        label_6 = new QLabel(widget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setFont(font);
+        label_6->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_6, 3, 6, 1, 1);
+
+        label_10 = new QLabel(widget);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setFont(font);
+
+        gridLayout->addWidget(label_10, 4, 0, 1, 1);
+
+        ack_time_maxEdit = new QLineEdit(widget);
+        ack_time_maxEdit->setObjectName(QString::fromUtf8("ack_time_maxEdit"));
+        ack_time_maxEdit->setMinimumSize(QSize(50, 0));
+        ack_time_maxEdit->setMaximumSize(QSize(120, 16777215));
+        ack_time_maxEdit->setFont(font);
+        ack_time_maxEdit->setReadOnly(true);
+
+        gridLayout->addWidget(ack_time_maxEdit, 4, 2, 1, 1);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_2->addItem(horizontalSpacer_3);
+        gridLayout->addItem(horizontalSpacer_3, 4, 3, 1, 1);
 
-        generateBt = new QPushButton(Widget);
-        generateBt->setObjectName(QString::fromUtf8("generateBt"));
-        generateBt->setMinimumSize(QSize(100, 0));
-        generateBt->setFont(font);
+        ack_time_minEdit = new QLineEdit(widget);
+        ack_time_minEdit->setObjectName(QString::fromUtf8("ack_time_minEdit"));
+        ack_time_minEdit->setMinimumSize(QSize(50, 0));
+        ack_time_minEdit->setMaximumSize(QSize(120, 16777215));
+        ack_time_minEdit->setFont(font);
+        ack_time_minEdit->setReadOnly(true);
 
-        horizontalLayout_2->addWidget(generateBt);
+        gridLayout->addWidget(ack_time_minEdit, 4, 4, 1, 1);
 
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addLayout(horizontalLayout_2, 3, 0, 1, 2);
+        gridLayout->addItem(horizontalSpacer_4, 4, 5, 1, 1);
 
-        verticalSpacer_3 = new QSpacerItem(20, 6, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        ack_time_avg_Edit = new QLineEdit(widget);
+        ack_time_avg_Edit->setObjectName(QString::fromUtf8("ack_time_avg_Edit"));
+        ack_time_avg_Edit->setMinimumSize(QSize(50, 0));
+        ack_time_avg_Edit->setMaximumSize(QSize(120, 16777215));
+        ack_time_avg_Edit->setFont(font);
 
-        gridLayout->addItem(verticalSpacer_3, 4, 1, 1, 1);
+        gridLayout->addWidget(ack_time_avg_Edit, 4, 6, 1, 1);
 
-        label_7->raise();
-        iapsizeEdit->raise();
-        appsizeEdit->raise();
-        label_8->raise();
-        parasizeEdit->raise();
-        label_9->raise();
-        apppathEdit->raise();
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setFont(font);
+        label_3->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_3, 5, 0, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_5, 5, 1, 1, 1);
+
+        lost_rateEdit = new QLineEdit(widget);
+        lost_rateEdit->setObjectName(QString::fromUtf8("lost_rateEdit"));
+        lost_rateEdit->setMinimumSize(QSize(400, 0));
+        lost_rateEdit->setFont(font);
+        lost_rateEdit->setFrame(true);
+        lost_rateEdit->setReadOnly(true);
+
+        gridLayout->addWidget(lost_rateEdit, 5, 2, 1, 5);
+
 
         retranslateUi(Widget);
 
@@ -375,22 +241,21 @@ public:
     void retranslateUi(QWidget *Widget)
     {
         Widget->setWindowTitle(QApplication::translate("Widget", "Widget", nullptr));
-        label->setText(QApplication::translate("Widget", "IAP", nullptr));
-        label_7->setText(QApplication::translate("Widget", "IAPsize", nullptr));
-        iapsizeEdit->setText(QString());
-        label_4->setText(QApplication::translate("Widget", "offsize", nullptr));
-        label_2->setText(QApplication::translate("Widget", "APP", nullptr));
-        label_8->setText(QApplication::translate("Widget", "APPsize", nullptr));
-        appsizeEdit->setText(QString());
-        label_6->setText(QApplication::translate("Widget", "offsize", nullptr));
-        label_3->setText(QApplication::translate("Widget", "Para", nullptr));
-        label_9->setText(QApplication::translate("Widget", "PARAsize", nullptr));
-        parasizeEdit->setText(QString());
-        label_5->setText(QApplication::translate("Widget", "offsize", nullptr));
-        iapBt->setText(QApplication::translate("Widget", "IAP", nullptr));
-        appBt->setText(QApplication::translate("Widget", "APP", nullptr));
-        paraBt->setText(QApplication::translate("Widget", "Para", nullptr));
-        generateBt->setText(QApplication::translate("Widget", "generate", nullptr));
+        sel_fileBt->setText(QApplication::translate("Widget", "\351\200\211\346\213\251\346\226\207\344\273\266", nullptr));
+        label->setText(QApplication::translate("Widget", "\345\217\221\351\200\201\346\225\260", nullptr));
+        label_7->setText(QApplication::translate("Widget", "\345\223\215\345\272\224\346\225\260", nullptr));
+        label_4->setText(QApplication::translate("Widget", "\350\266\205\346\227\266\346\225\260", nullptr));
+        label_8->setText(QApplication::translate("Widget", "PING\350\257\267\346\261\202", nullptr));
+        ping_sendEdit->setText(QString());
+        ping_ackEdit->setText(QApplication::translate("Widget", "100000", nullptr));
+        ping_timeoutEdit->setText(QString());
+        label_9->setText(QApplication::translate("Widget", "MAX", nullptr));
+        label_5->setText(QApplication::translate("Widget", "MIN", nullptr));
+        label_6->setText(QApplication::translate("Widget", "AVG", nullptr));
+        label_10->setText(QApplication::translate("Widget", "\345\223\215\345\272\224\346\227\266\351\227\264", nullptr));
+        ack_time_maxEdit->setText(QString());
+        ack_time_minEdit->setText(QApplication::translate("Widget", "1632", nullptr));
+        label_3->setText(QApplication::translate("Widget", "\344\270\242\345\214\205\347\216\207", nullptr));
     } // retranslateUi
 
 };

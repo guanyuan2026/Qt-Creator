@@ -20,13 +20,7 @@ public:
     ~Widget();
 
 private slots:
-    void on_iapBt_clicked();
-
-    void on_appBt_clicked();
-
-    void on_paraBt_clicked();
-
-    void on_generateBt_clicked();
+    void on_sel_fileBt_clicked();
 
 private:
     Ui::Widget *ui;
