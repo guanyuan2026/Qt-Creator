@@ -19,6 +19,10 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+protected:
+    void dragEnterEvent(QDragEnterEvent* ev) override;
+    void dropEvent(QDropEvent* ev) override;
+
 private slots:
     void on_sel_fileBt_clicked();
 

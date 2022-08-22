@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>795</width>
-    <height>316</height>
+    <width>635</width>
+    <height>245</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>40</y>
+     <x>10</x>
+     <y>10</y>
      <width>606</width>
      <height>220</height>
     </rect>
@@ -211,7 +211,10 @@
        </font>
       </property>
       <property name="text">
-       <string>100000</string>
+       <string/>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -359,7 +362,7 @@
        </font>
       </property>
       <property name="text">
-       <string>1632</string>
+       <string/>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -380,7 +383,7 @@
      </spacer>
     </item>
     <item row="4" column="6">
-     <widget class="QLineEdit" name="ack_time_avg_Edit">
+     <widget class="QLineEdit" name="ack_time_avgEdit">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -397,6 +400,9 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
