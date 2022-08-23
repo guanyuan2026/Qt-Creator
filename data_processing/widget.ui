@@ -414,7 +414,7 @@
        </font>
       </property>
       <property name="text">
-       <string>丢包率</string>
+       <string>丢包率%%</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

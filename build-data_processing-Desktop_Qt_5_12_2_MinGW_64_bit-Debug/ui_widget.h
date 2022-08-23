@@ -257,7 +257,7 @@ public:
         label_10->setText(QApplication::translate("Widget", "\345\223\215\345\272\224\346\227\266\351\227\264", nullptr));
         ack_time_maxEdit->setText(QString());
         ack_time_minEdit->setText(QString());
-        label_3->setText(QApplication::translate("Widget", "\344\270\242\345\214\205\347\216\207", nullptr));
+        label_3->setText(QApplication::translate("Widget", "\344\270\242\345\214\205\347\216\207%%", nullptr));
     } // retranslateUi
 
 };

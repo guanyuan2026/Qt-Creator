@@ -18,6 +18,7 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
+    void deal_data(QString filepath);
 
 protected:
     void dragEnterEvent(QDragEnterEvent* ev) override;
